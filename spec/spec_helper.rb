@@ -8,11 +8,11 @@ DATABASE = 'dw_test_db'
 USERNAME = 'hireology'
 PASSWORD = 'h1r3'
 CONNECTION_OPTIONS = {
-  :host => HOST,
-  :port => PORT,
-  :database => DATABASE,
-  :username => USERNAME,
-  :password => PASSWORD
+  "host" => HOST,
+  "port" => PORT,
+  "database" => DATABASE,
+  "username" => USERNAME,
+  "password" => PASSWORD
 }
 
 RSpec.configure do |config|

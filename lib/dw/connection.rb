@@ -8,11 +8,11 @@ module DW
 
     def establish_connection(options)
       @db_connection ||= PG::Connection.new(
-        :host => options.fetch(:host, 'localhost'),
-        :port => options.fetch(:port, 5432),
-        :dbname => options.fetch(:database, nil),
-        :user => options.fetch(:username, nil),
-        :password => options.fetch(:password, nil)
+        :host => options.fetch("host", 'localhost'),
+        :port => options.fetch("port", 5432),
+        :dbname => options.fetch("database", nil),
+        :user => options.fetch("username", nil),
+        :password => options.fetch("password", nil)
       )
     end
   end
