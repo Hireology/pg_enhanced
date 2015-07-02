@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    DW (0.0.1)
+    dw (0.0.2)
 
 GEM
   remote: https://rubygems.org/
@@ -33,7 +33,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  DW!
+  dw!
   pg (~> 0.18.2)
   pry (~> 0.10.1)
   rspec (~> 3.0)
