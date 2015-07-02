@@ -25,7 +25,7 @@ module DW
       end
 
       describe "#execute_json" do
-        it "can execute arbitraty queries whose results are in json format" do
+        it "can execute arbitrary queries whose results are in json format" do
           query = "select * from test_table"
 
           result = client.execute_json(query)
