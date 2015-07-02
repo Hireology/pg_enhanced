@@ -1,7 +1,7 @@
 require File.expand_path('../lib/dw/version', __FILE__)
 
 Gem::Specification.new do |s|
-  s.name = 'DW'
+  s.name = 'dw'
   s.version = DW::VERSION
   s.date = '2015-06-30'
   s.summary = 'Ruby client to interface with the data warehouse'
