@@ -16,11 +16,11 @@ module DW
 
     def execute_json(query)
       connection.exec(
-        "select row_to_json(t)
+        "select array_to_json(array_agg(row_to_json(t)))
          from (
         #{query}
          ) t "
-      ).map { |row| row["row_to_json"] }
+      ).first["array_to_json"]
     end
 
     private

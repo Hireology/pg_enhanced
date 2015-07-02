@@ -25,12 +25,12 @@ module DW
       end
 
       describe "#execute_json" do
-        it "can execute arbitrary queries whose results are in json format" do
+        it "can execute arbitrary queries whose results are a json array of json objects" do
           query = "select * from test_table"
 
           result = client.execute_json(query)
 
-          expect(result).to eq(["{\"name\":\"Tyrion Lannister\"}", "{\"name\":\"Jon Snow\"}", "{\"name\":\"Eddard Stark\"}", "{\"name\":\"Daenerys Targaryen\"}"])
+          expect(result).to eq("[{\"name\":\"Tyrion Lannister\"},{\"name\":\"Jon Snow\"},{\"name\":\"Eddard Stark\"},{\"name\":\"Daenerys Targaryen\"}]")
         end
       end
     end
