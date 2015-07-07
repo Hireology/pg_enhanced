@@ -1,6 +1,6 @@
 require 'pg'
 
-module DW
+module PGEnhanced
   class Connection
     def initialize
       @db_connection = nil

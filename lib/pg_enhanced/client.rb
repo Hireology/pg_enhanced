@@ -1,4 +1,4 @@
-module DW
+module PGEnhanced
   class Client
     attr_reader :connection
 
