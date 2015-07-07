@@ -2,8 +2,8 @@ module PGEnhanced
   class Client
     attr_reader :connection
 
-    def self.configure(options)
-      new(establish_connection(options))
+    def self.establish_connection(options)
+      new(connection.establish_connection(options))
     end
 
     def initialize(connection)
@@ -29,10 +29,5 @@ module PGEnhanced
       @connection ||= Connection.new
     end
     private_class_method :connection
-
-    def self.establish_connection(options)
-      connection.establish_connection(options)
-    end
-    private_class_method :establish_connection
   end
 end

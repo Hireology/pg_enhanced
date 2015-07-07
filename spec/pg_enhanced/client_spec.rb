@@ -3,7 +3,7 @@ require 'spec_helper'
 RSpec.describe PGEnhanced::Client do
   subject { described_class }
 
-  let(:client) { subject.configure(Helpers::TestDBConfiguration::CONNECTION_OPTIONS) }
+  let(:client) { subject.establish_connection(Helpers::TestDBConfiguration::CONNECTION_OPTIONS) }
 
   describe "configuration" do
     it "returns a client object" do
