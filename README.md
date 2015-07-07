@@ -61,7 +61,7 @@ JSON.parse(result) # => [{"count"=>8165}]
 # Executing an arbitrary sql query returned in CSV format:
 client = PGEnhanced::Client.establish_connection(connection_parameters)
 
-result = client.execute_csv("select * from example_table")
+result = client.execute_csv("select count(*) from example_table")
 result # => "count\n8165"
 ```
 
