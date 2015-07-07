@@ -1,5 +1,5 @@
 # PGEnhanced
-[ ![Codeship Status for Hireology/dw_client](https://codeship.com/projects/7ae436c0-0313-0133-32e9-36fe44f74615/status?branch=master)](https://codeship.com/projects/89109)
+[ ![Codeship Status for Hireology/pg_enhanced](https://codeship.com/projects/3fd5e0f0-072b-0133-2c6b-7ed36be266d6/status?branch=master)](https://codeship.com/projects/89959)
 
 ### About
 PGEnhanced is a gem that provides a facility to connect to a PostgreSQL database (using the popular [pg gem](https://bitbucket.org/ged/ruby-pg/wiki/Home)),
