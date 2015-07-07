@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
   s.files = ["lib/pg_enhanced.rb"]
   s.require_paths = ["lib"]
   s.homepage = 'https://github.com/hireology/pg_enhanced'
+  s.license = 'MIT'
 
   s.add_development_dependency("rspec", "~> 3.0")
   s.add_development_dependency("pry", "~> 0.10.1")
