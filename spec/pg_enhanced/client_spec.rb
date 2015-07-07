@@ -28,7 +28,17 @@ RSpec.describe PGEnhanced::Client do
 
         result = client.execute_json(query)
 
-        expect(result).to eq("[{\"name\":\"Tyrion Lannister\"},{\"name\":\"Jon Snow\"},{\"name\":\"Eddard Stark\"},{\"name\":\"Daenerys Targaryen\"}]")
+        expect(result).to eq("[{\"name\":\"Tyrion Lannister\",\"age\":23},{\"name\":\"Jon Snow\",\"age\":18},{\"name\":\"Eddard Stark\",\"age\":40},{\"name\":\"Daenerys Targaryen\",\"age\":18}]")
+      end
+    end
+
+    describe "#execute_csv" do
+      it "can execute arbitrary queries whose results are in a CSV format" do
+        query = "select * from test_table"
+
+        result = client.execute_csv(query)
+
+        expect(result).to eq("name,age\nTyrion Lannister,23\nJon Snow,18\nEddard Stark,40\nDaenerys Targaryen,18\n")
       end
     end
   end

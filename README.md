@@ -4,9 +4,9 @@
 ### About
 PGEnhanced is a gem that provides a facility to connect to a PostgreSQL database (using the popular [pg gem](https://bitbucket.org/ged/ruby-pg/wiki/Home)),
 in order to provide a simple query interface through a PGEnhanced::Client object. The PGEnhanced::Client object defines convenience methods such as
-`execute` and `execute_json` that both allow the execution of arbitrary sql queries whose results are returned either as a PG::Result object, or as a
-JSON collection whose elements represent each record returned from the query, respectively. Additional functionality for generating a CSV representation
-of a query result will also be possible with `execute_csv`.
+`PGEnhanced::Client#execute` and `PGEnhanced::Client#execute_json` that both allow the execution of arbitrary sql queries whose results are returned either
+as a PG::Result object, or as a JSON collection whose elements represent each record returned from the query, respectively. Additional functionality for
+generating a CSV representation of a query result is also be possible with `PGEnhanced::Client#execute_csv`.
 
 ### Configuration
 
@@ -15,14 +15,14 @@ of a query result will also be possible with `execute_csv`.
 
 connection_parameters = {
   :host => 'localhost', # if no host is specified, :host defaults to 'localhost'
-  :port => 5432, # if no port is specified, :port defaults to the postgresql default of 5432
+  :port => 5432, # if no port is specified, :port defaults to 5432
   :database => 'example_db',
   :username => 'example_user',
   :password => 'secret'
 }
 
-# Given a hash of connection parameters, PGEnhanced creates a postgres database connection
-# and instantiates a client object like so:
+# Given a hash of connection parameters, PGEnhanced creates a postgres database
+# connection and instantiates a client object like so:
 
 client = PGEnhanced::Client.establish_connection(connection_options)
 ```
@@ -39,9 +39,9 @@ PGEnhanced::Client.establish_connection(connection_parameters)
 
 ```ruby
 # Executing an arbitrary sql query:
-client = PGEnhanced::Client.establish_connection(connection_options)
+client = PGEnhanced::Client.establish_connection(connection_parameters)
 
-result = client.execute("select * from example_table")
+result = client.execute("select count(*) from example_table")
 result # => #<PG::Result:0x007ffb07d2e3a8 @connection=#<PG::Connection:0x007ffb07b64478 @socket_io=nil, @notice_receiver=nil, @notice_processor=nil>>
 result.count # => 1
 result.first # => {"count"=>"8165"}
@@ -50,16 +50,20 @@ result.first["count"] # => "8165"
 
 ```ruby
 # Executing an arbitrary sql query returned as JSON:
-client = PGEnhanced::Client.establish_connection(connection_options)
+client = PGEnhanced::Client.establish_connection(connection_parameters)
 
-result = client.execute_json("select * from example_table")
+result = client.execute_json("select count(*) from example_table")
 result # => "[{\"count\":8165}]"
 JSON.parse(result) # => [{"count"=>8165}]
 ```
 
-### Features
+```ruby
+# Executing an arbitrary sql query returned in CSV format:
+client = PGEnhanced::Client.establish_connection(connection_parameters)
 
-1. CSV generation from queries
+result = client.execute_csv("select * from example_table")
+result # => "count\n8165"
+```
 
 ### License
 The MIT License (MIT)

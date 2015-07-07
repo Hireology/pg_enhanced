@@ -1,3 +1,5 @@
+require 'csv'
+
 module PGEnhanced
   class Client
     attr_reader :connection
@@ -21,6 +23,16 @@ module PGEnhanced
         #{query}
          ) t "
       ).first["array_to_json"]
+    end
+
+    def execute_csv(query, options={})
+      CSV.generate(options) do |csv|
+        result = execute(query)
+        csv << result.first.keys
+        result.each do |row|
+          csv << row.values
+        end
+      end
     end
 
     private
