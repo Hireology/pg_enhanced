@@ -6,7 +6,7 @@ PGEnhanced is a gem that provides a facility to connect to a PostgreSQL database
 in order to provide a simple query interface through a PGEnhanced::Client object. The PGEnhanced::Client object defines convenience methods such as
 `PGEnhanced::Client#execute` and `PGEnhanced::Client#execute_json` that both allow the execution of arbitrary sql queries whose results are returned either
 as a PG::Result object, or as a JSON collection whose elements represent each record returned from the query, respectively. Additional functionality for
-generating a CSV representation of a query result is also be possible with `PGEnhanced::Client#execute_csv`.
+generating a CSV representation of a query result is also possible with `PGEnhanced::Client#execute_csv`.
 
 ### Configuration
 
